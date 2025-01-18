@@ -2,9 +2,9 @@ package main
 
 import (
 	"encoding/json"
-	"io"
 	"log"
 	"net/http"
+	"net/http/httputil"
 )
 
 type ResponseInfo struct {
@@ -19,7 +19,12 @@ type ResponseInfo struct {
 func handleAny(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
-	var resp ResponseInfo
+	dump, err := httputil.DumpRequest(r, true)
+	if err != nil {
+		return
+	}
+
+	/*var resp ResponseInfo
 	resp.Method = r.Method
 	resp.URL = r.URL.String()
 	resp.Path = r.URL.Path
@@ -37,9 +42,9 @@ func handleAny(w http.ResponseWriter, r *http.Request) {
 	for key, value := range r.Header {
 		header[key] = value
 	}
-	resp.Header = header
+	resp.Header = header*/
 
-	json.NewEncoder(w).Encode(resp)
+	json.NewEncoder(w).Encode(dump)
 }
 
 func main() {
