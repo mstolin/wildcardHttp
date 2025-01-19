@@ -32,7 +32,7 @@ func main() {
 	} else if len(os.Args[1:]) == 2 {
 		addr = fmt.Sprintf("%s:%s", os.Args[1], os.Args[2])
 	} else {
-		log.Fatal(HelpText)
+		log.Panic(HelpText)
 		return
 	}
 
