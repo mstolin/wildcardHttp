@@ -6,7 +6,8 @@ Additionally, the development goal is to have a single, simple, and zero-depende
 
 ## Usage
 
-Use the CLI tool as the following:
+First, build the binary using `make build`.
+Then, use the CLI tool as the following:
 
 ```
 whttp <host> [<port>]
@@ -23,9 +24,11 @@ whttp localhost 5000
 
 ## Docker
 
-The provided [Dockerfile](./Dockerfile) exposes the HTTP server at port 80. You can use as follows:
+The provided [Dockerfile](./Dockerfile) exposes the HTTP server at port 80.
+The [Makefile](./Makefile) supports Docker and Podman, and provides the following commands:
 
 ```
-docker build -t wildcardhttp .
-docker run --rm -p 127.0.0.1:5000:80 localhost/whttp:latest
+make build-docker # Build the OCI image.
+make run-docker   # Start the container in background. Set port with PORT=8000, otherwise 5000 is used.
+make stop-docker  # Stop and remove the container.
 ```
