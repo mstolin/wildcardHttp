@@ -13,7 +13,7 @@ build:
 
 .PHONY: run
 run:
-	whttp
+	./whttp :$(PORT)
 
 .PHONY: build-docker
 build-docker:
