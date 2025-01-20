@@ -24,6 +24,8 @@ whttp localhost 5000
 
 ## Docker
 
+Pull the image from [https://hub.docker.com/r/marcelstolin/wildcardhttp](https://hub.docker.com/r/marcelstolin/wildcardhttp).
+
 The provided [Dockerfile](./Dockerfile) exposes the HTTP server at port 80.
 The [Makefile](./Makefile) supports Docker and Podman, and provides the following commands:
 
