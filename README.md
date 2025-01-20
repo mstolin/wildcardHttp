@@ -1,8 +1,8 @@
 # WildcardHttp
 
-This ia asimple HTTP server, that serves any routes and prints the HTTP request information.
-The purpose of this project is to have a simple and lightweight HTTP serves for debugging.
-Additionally, the development goal is to have a single, simple, and zero-dependency go module.
+This is a simple HTTP server, that serves any routes and prints the HTTP request information.
+The purpose of this project is to have a simple and lightweight HTTP serves for debugging in
+single, simple, and zero-dependency go module.
 
 ## Usage
 
