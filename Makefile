@@ -1,5 +1,6 @@
 PORT = 5000
 NAME = wildcardhttp
+BIN_NAME = whttp
 
 ifeq ($(shell command -v podman 2> /dev/null),)
     DOCKER=docker
@@ -9,7 +10,7 @@ endif
 
 .PHONY: build
 build:
-	go build -o whttp main.go
+	go build -o $(BIN_NAME) main.go
 
 .PHONY: run
 run:
