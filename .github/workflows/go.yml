@@ -4,6 +4,7 @@ on:
     push:
         branches: ["main", "develop"]
     pull_request:
+        branches: ["main", "develop"]
     paths-ignore:
         - "**/Readme.md"
         - ".editorconfig"
@@ -27,8 +28,7 @@ jobs:
               with:
                   version: v1.60
     build:
-        depends_on:
-            - golangci
+        needs: golangci
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
