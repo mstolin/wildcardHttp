@@ -68,7 +68,11 @@ func handleAny(w http.ResponseWriter, r *http.Request) {
 func handleAnyJson(w http.ResponseWriter, r *http.Request) {
 	if requestData, err := NewRequestData(r); err == nil {
 		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(requestData)
+		if err := json.NewEncoder(w).Encode(requestData); err != nil {
+			w.WriteHeader(500)
+			fmt.Fprintf(w, "%e", err)
+			return
+		}
 	} else {
 		w.WriteHeader(500)
 		fmt.Fprintf(w, "%e", err)
