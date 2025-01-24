@@ -13,3 +13,6 @@ indent_style = tab
 [*.md]
 trim_trailing_whitespace = false
 eclint_indent_style = unset
+
+[*.yml,*.yaml]
+indent_size = 2
